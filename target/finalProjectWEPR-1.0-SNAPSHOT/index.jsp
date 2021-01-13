@@ -22,7 +22,11 @@
         
         
         <%
+            out.print(FactoryProvider.getFactory() + "<br>");
+            out.print(FactoryProvider.getFactory() + "<br>");
             out.print(FactoryProvider.getFactory());
+
+
         %>
     </body>
 </html>
