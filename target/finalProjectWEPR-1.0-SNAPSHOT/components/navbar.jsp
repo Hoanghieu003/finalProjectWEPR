@@ -25,7 +25,7 @@
                     </div>
                 </li>
             </ul>
-            <ul class="navbar-nav mr-auto">
+            <ul class="navbar-nav ml-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="login.jsp">Login </a>
                 </li>
