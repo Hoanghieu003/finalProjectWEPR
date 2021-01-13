@@ -36,7 +36,10 @@ public class User {
     @Column(length = 1500, name = "user_adress")
     private String userAdress;
 
-    public User(int userID, String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAdress) {
+    @Column(name="user_type")
+    private String userType;
+    
+    public User(int userID, String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAdress,String userType) {
         this.userID = userID;
         this.userName = userName;
         this.userEmail = userEmail;
@@ -44,15 +47,17 @@ public class User {
         this.userPhone = userPhone;
         this.userPic = userPic;
         this.userAdress = userAdress;
+        this.userType=userType;
     }
 
-    public User(String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAdress) {
+    public User(String userName, String userEmail, String userPassword, String userPhone, String userPic, String userAdress, String userType) {
         this.userName = userName;
         this.userEmail = userEmail;
         this.userPassword = userPassword;
         this.userPhone = userPhone;
         this.userPic = userPic;
         this.userAdress = userAdress;
+        this.userType=userType;
     }
 
     public User() {
@@ -114,6 +119,15 @@ public class User {
         this.userAdress = userAdress;
     }
 
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+    
+    
     @Override
     public String toString() {
         return "User{" + "userID=" + userID + ", userName=" + userName + ", userEmail=" + userEmail + ", userPassword=" + userPassword + ", userPhone=" + userPhone + ", userPic=" + userPic + ", userAdress=" + userAdress + '}';
