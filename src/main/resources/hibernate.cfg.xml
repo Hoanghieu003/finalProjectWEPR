@@ -15,7 +15,7 @@
       </property>
       
       <property name = "hibernate.connection.password">
-         hoangHieu@1999
+         123456
       </property>
       <property name = "hibernate.dialect">
          org.hibernate.dialect.MySQL57Dialect
