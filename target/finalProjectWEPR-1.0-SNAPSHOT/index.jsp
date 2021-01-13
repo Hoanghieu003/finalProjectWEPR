@@ -15,7 +15,11 @@
     <body>
         <h1>Hello World!</h1>
         <%
+            out.print(FactoryProvider.getFactory() + "<br>");
+            out.print(FactoryProvider.getFactory() + "<br>");
             out.print(FactoryProvider.getFactory());
+
+
         %>
     </body>
 </html>
