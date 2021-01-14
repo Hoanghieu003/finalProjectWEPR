@@ -1,3 +1,10 @@
+
+<%@page import="com.learn.finalProjectWEPR.entities.User"%>
+<%
+    User user1 = (User) session.getAttribute("current-user");
+
+%>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-light custom-bg">
     <div class="container">
         <a class="navbar-brand" href="index.jsp">MyCart</a>
@@ -12,7 +19,7 @@
                     <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
 
                 </li>
-                
+
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Categories
@@ -26,6 +33,8 @@
                 </li>
             </ul>
             <ul class="navbar-nav ml-auto">
+                <%                    if (user1 == null) {
+                %>
                 <li class="nav-item active">
                     <a class="nav-link" href="login.jsp">Login </a>
                 </li>
@@ -33,6 +42,21 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="register.jsp">Register </a>
                 </li>
+                <%
+                } else {
+                %>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="login.jsp"><%=user1.getUserName()%> </a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="LogoutServlet">Logout </a>
+                </li>
+                <%
+                    }
+                %>
+
             </ul>
         </div>
     </div>
