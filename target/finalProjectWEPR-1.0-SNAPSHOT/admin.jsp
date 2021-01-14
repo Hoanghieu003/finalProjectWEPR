@@ -28,6 +28,71 @@
     </head>
     <body>
         <%@include  file="components/navbar.jsp"%>
-        <h1>This is admin panel page</h1>
+        <div class="container">
+            <div class="row mt-3">
+                <!--first column-->
+                <div class="col-md-4">
+                    <div class = "card ">
+                        <div class="card-body text-center">
+                            <div class="container">
+                                <img style= "max-width: 125px;" class="img-fluid" src="img/users.png" alt="user-icon"/>
+                            </div>
+                            <h1>1214</h1>
+                            <h1 class = "text-uppercase text-muted">Users</h1>
+                        </div>
+                    </div>
+                </div>
+                <!--second column-->
+                <div class="col-md-4">
+                    <div class = "card">
+                        <div class="card-body text-center">
+                            <div class="container">
+                                <img style= "max-width: 125px;" class="img-fluid" src="img/categories.png" alt="categories-icon"/>
+                            </div>
+                            <h1>4532</h1>
+                            <h1 class = "text-uppercase text-muted">Categories</h1>
+                        </div>
+                    </div>
+                </div>
+                <!--third column-->
+                <div class="col-md-4">
+                    <div class = "card text-center">
+                        <div class="card-body">
+                            <div class="container">
+                                <img style= "max-width: 125px;" class="img-fluid" src="img/products.png" alt="products-icon"/>
+                            </div>
+                            <h1>2342</h1>
+                            <h1 class = "text-uppercase text-muted">Products</h1>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!--secon row-->
+            <div class = "row">
+                <div class ="col-md-6">
+                    <div class = "card text-center">
+                        <div class="card-body">
+                            <div class="container">
+                                <img style= "max-width: 125px;" class="img-fluid" src="img/add-category.png" alt="add-category-icon"/>
+                            </div>
+                            <p class="mt-2">Click here to add new categories</p>
+                            <h1 class = "text-uppercase text-muted">Add Categories</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class = "card text-center">
+                        <div class="card-body">
+                            <div class="container">
+                                <img style= "max-width: 125px;" class="img-fluid" src="img/add-product.png" alt="add-product-icon"/>
+                            </div>
+                            <p class="mt-2">Click here to add new product</p>
+                            <h1 class = "text-uppercase text-muted">Add Product</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
