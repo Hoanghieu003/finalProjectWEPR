@@ -28,7 +28,7 @@
     </head>
     <body>
         <%@include  file="components/navbar.jsp"%>
-        <div class="container">
+        <div class="container admin">
             <div class="row mt-3">
                 <!--first column-->
                 <div class="col-md-4">
@@ -71,8 +71,8 @@
             <!--secon row-->
             <div class = "row">
                 <div class ="col-md-6">
-                    <div class = "card text-center">
-                        <div class="card-body">
+                    <div class = "card" data-toggle="modal" data-target="#add-category-modal">
+                        <div class="card-body text-center">
                             <div class="container">
                                 <img style= "max-width: 125px;" class="img-fluid" src="img/add-category.png" alt="add-category-icon"/>
                             </div>
@@ -94,5 +94,38 @@
                 </div>
             </div>
         </div>
+        <!--add category modal-->
+
+        <!-- Modal -->
+        <div class="modal fade" id="add-category-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header custom-bg text-white">
+                        <h5 class="modal-title" id="exampleModalLabel">Fill category details</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <input type ="text" class="form-control" name="catTitle" placeholder="Enter Category Title" required/>
+                            </div>
+                            <div class="form-group">
+                                <textarea style="height: 300px" class="form-control" placeholder="Enter Category Description" name = "catDescription" required></textarea>
+
+                            </div>
+                            <div class="container text-center">
+                                <button class="btn btn-outline-success">Add Category</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End add category modal-->
     </body>
 </html>
