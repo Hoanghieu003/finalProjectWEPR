@@ -114,5 +114,10 @@ public class Product {
         return "Product{" + "pId=" + pId + ", pName=" + pName + ", pDesc=" + pDesc + ", pPhoto=" + pPhoto + ", pPrice=" + pPrice + ", pDiscount=" + pDiscount + ", pQuantity=" + pQuantity + '}';
     }
     
-    
+    // Calculate price after discount
+    public int getPriceAfterAppLyingDiscount(){
+        
+        int d=(int)((this.getpDiscount()/100.0)*this.getpPrice());
+        return this.getpPrice() - d ;
+    }
 }
