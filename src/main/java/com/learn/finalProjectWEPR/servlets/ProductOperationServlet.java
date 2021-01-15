@@ -6,20 +6,25 @@
 package com.learn.finalProjectWEPR.servlets;
 
 import com.learn.finalProjectWEPR.dao.CategoryDao;
+import com.learn.finalProjectWEPR.dao.ProductDao;
 import com.learn.finalProjectWEPR.entities.Category;
+import com.learn.finalProjectWEPR.entities.Product;
 import com.learn.finalProjectWEPR.helper.FactoryProvider;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
 /**
  *
  * @author HoangHieu
  */
+@MultipartConfig
 public class ProductOperationServlet extends HttpServlet {
 
     /**
@@ -45,15 +50,15 @@ public class ProductOperationServlet extends HttpServlet {
                 // fetching category data
                 String title = request.getParameter("catTitle");
                 String description = request.getParameter("catDescription");
-                
+
                 Category category = new Category();
                 category.setCategoryTitle(title);
                 category.setCategoryDescription(description);
-                
+
                 //category database save:
                 CategoryDao categoryDao = new CategoryDao(FactoryProvider.getFactory());
                 int catId = categoryDao.saveCategory(category);
-                
+
 //                out.println("Category Saved");
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("message", "Category added sucessfully : " + catId);
@@ -61,6 +66,37 @@ public class ProductOperationServlet extends HttpServlet {
                 return;
             } else if (op.trim().equals("addproduct")) {
                 //add product
+                //work
+                String pName = request.getParameter("pName");
+                String pDesc = request.getParameter("pDesc");
+                int pPrice = Integer.parseInt(request.getParameter("pPrice"));
+                int pDiscount = Integer.parseInt(request.getParameter("pDiscount"));
+                int pQuantity = Integer.parseInt(request.getParameter("pQuantity"));
+                int catId = Integer.parseInt(request.getParameter("catId"));
+                Part part = request.getPart("pPic");
+
+                Product p = new Product();
+                p.setpName(pName);
+                p.setpDesc(pDesc);
+                p.setpPrice(pPrice);
+                p.setpDiscount(pDiscount);
+                p.setpQuantity(pQuantity);
+                p.setpPhoto(part.getSubmittedFileName());
+
+                // get category by id
+                CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
+                Category category=cdao.getCategoryById(catId);
+                
+                p.setCategory(category);
+                
+                //product save...
+                ProductDao pdao=new ProductDao(FactoryProvider.getFactory());
+                pdao.saveProduct(p);
+                out.println("Save successfully");
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("message", "Product is added successfully...");
+                response.sendRedirect("admin.jsp");
+                return;
             }
         }
     }

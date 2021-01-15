@@ -1,7 +1,7 @@
-com\learn\finalProjectWEPR\entities\User.class
 com\learn\finalProjectWEPR\entities\Product.class
+com\learn\finalProjectWEPR\dao\UserDao.class
+com\learn\finalProjectWEPR\entities\User.class
 com\learn\finalProjectWEPR\helper\FactoryProvider.class
 com\learn\finalProjectWEPR\servlets\LoginServlet.class
 com\learn\finalProjectWEPR\entities\Category.class
-com\learn\finalProjectWEPR\dao\UserDao.class
 com\learn\finalProjectWEPR\servlets\RegisterServlet.class
