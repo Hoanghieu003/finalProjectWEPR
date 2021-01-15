@@ -28,7 +28,12 @@
     </head>
     <body>
         <%@include  file="components/navbar.jsp"%>
-        <div class="container admin">
+        
+            
+        <div class = "container-fluid mt-3">
+            <%@include file="components/message.jsp" %>
+        </div>
+            
             <div class="row mt-3">
                 <!--first column-->
                 <div class="col-md-4">
@@ -93,7 +98,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        
         <!--add category modal-->
 
         <!-- Modal -->
@@ -107,7 +112,10 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form>
+                        <form action="ProductOperationServlet" method="post">
+                            
+                            <input type="hidden" name="operation" value="addcategory">
+                            
                             <div class="form-group">
                                 <input type ="text" class="form-control" name="catTitle" placeholder="Enter Category Title" required/>
                             </div>
