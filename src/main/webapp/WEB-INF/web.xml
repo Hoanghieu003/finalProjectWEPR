@@ -16,6 +16,10 @@
         <servlet-name>ProductOperationServlet</servlet-name>
         <servlet-class>com.learn.finalProjectWEPR.servlets.ProductOperationServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Helper</servlet-name>
+        <servlet-class>com.learn.finalProjectWEPR.helper.Helper</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>RegisterServlet</servlet-name>
         <url-pattern>/RegisterServlet</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>ProductOperationServlet</servlet-name>
         <url-pattern>/ProductOperationServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Helper</servlet-name>
+        <url-pattern>/Helper</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
