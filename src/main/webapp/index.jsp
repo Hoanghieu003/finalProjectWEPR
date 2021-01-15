@@ -97,7 +97,7 @@
 
                                     </div>
                                     <div class = "card-footer text-center">
-                                        <button class="btn custom-bg text-white">Add to Cart</button>
+                                        <button class="btn custom-bg text-white" onclick="add_to_cart(<%= p.getpId() %>,'<%= p.getpName() %>',<%= p.getpPrice() %>)">Add to Cart</button>
                                         <button class="btn btn-outline-success"><%= p.getPriceAfterAppLyingDiscount()%>&#8363 /- <span class="text-secondary discount-label"><%= p.getpPrice()%>&#8363 , <%= p.getpDiscount()%>% off</span> </button>
                                     </div>
 
