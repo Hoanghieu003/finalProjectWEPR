@@ -10,7 +10,10 @@ import com.learn.finalProjectWEPR.dao.ProductDao;
 import com.learn.finalProjectWEPR.entities.Category;
 import com.learn.finalProjectWEPR.entities.Product;
 import com.learn.finalProjectWEPR.helper.FactoryProvider;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.MultipartConfig;
@@ -85,13 +88,35 @@ public class ProductOperationServlet extends HttpServlet {
 
                 // get category by id
                 CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
-                Category category=cdao.getCategoryById(catId);
-                
+                Category category = cdao.getCategoryById(catId);
+
                 p.setCategory(category);
-                
+
                 //product save...
-                ProductDao pdao=new ProductDao(FactoryProvider.getFactory());
+                ProductDao pdao = new ProductDao(FactoryProvider.getFactory());
                 pdao.saveProduct(p);
+
+                //pic upload
+                String path = request.getRealPath("img") + File.separator + "products" + File.separator + part.getSubmittedFileName();
+                System.out.println(path);
+
+                //uploading code..
+                try {
+                    FileOutputStream fos = new FileOutputStream(path);
+                    InputStream is = part.getInputStream();
+
+//                reading data
+                    byte[] data = new byte[is.available()];
+
+                    is.read(data);
+                    // writing the data
+                    fos.write(data);
+                    fos.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 out.println("Save successfully");
                 HttpSession httpSession = request.getSession();
                 httpSession.setAttribute("message", "Product is added successfully...");
