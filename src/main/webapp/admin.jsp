@@ -243,6 +243,7 @@
 
 
 
+        <%@include  file="components/common_modals.jsp"%>
 
         <!--End product modal-->
     </body>
