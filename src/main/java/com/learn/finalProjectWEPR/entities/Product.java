@@ -100,8 +100,8 @@ public class Product {
         this.pQuantity = pQuantity;
     }
 
-    public Category getCategory() {
-        return category;
+    public String getCategory() {
+        return category.getCategoryTitle();
     }
 
     public void setCategory(Category category) {

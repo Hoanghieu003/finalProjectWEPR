@@ -269,7 +269,7 @@
         <!-- delete product modal-->
 
         <!-- Modal -->
-        <div class="modal fade" id="delete-product-modal" >
+        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="classInfo" aria-hidden="true" id="delete-product-modal" >
             <div class="modal-dialog modal-lg" >
                 <div class="modal-content">
                     <div class="modal-header">
@@ -278,7 +278,7 @@
                     </div>
                     <div class="modal-body">
                         <div align="center">
-                            <table border="1" cellpadding="8">
+                            <table class="table table-bordered" border="1" cellpadding="8">
                                  <tr>
                                     <th>ID</th>
                                     <th>Title Product</th>
