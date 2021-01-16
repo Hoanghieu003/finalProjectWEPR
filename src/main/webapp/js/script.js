@@ -28,7 +28,7 @@ function add_to_cart(pid, pname, price)
             })
             localStorage.setItem("cart", JSON.stringify(pcart));
             console.log("Product quantity is increased");
-            
+
 
         } else
         {
@@ -41,5 +41,70 @@ function add_to_cart(pid, pname, price)
         }
     }
 
-
+    updateCart();
 }
+
+//update cart:
+
+function updateCart()
+{
+    let cartString = localStorage.getItem("cart");
+    let cart = JSON.parse(cartString);
+    if (cart == null || cart.length == 0)
+    {
+        console.log("cart is empty");
+        $(".cart-items").html("( 0 )");
+        $(".cart-body").html("<h3>Cart does not have any item </h3>")
+        $(".checkout-btn").addClass("disable");
+    } else {
+        //there is some in cart to show
+        console.log(cart);
+        $(".cart-items").html(` ( ${cart.length} ) `);
+        let table = `
+            <table class ="table">
+            <thead class = "thread-light"
+                <tr>
+                <th> Item Name </th>
+                <th> Price </th>
+                <th> Quantity </th>
+                <th> Total Price </th>
+                <th> Action </th>
+                </tr>
+            </thead>
+            `;
+        let totalPrice = 0; 
+        cart.map((item) => {
+            table += `
+                <tr>
+                    <td> ${item.productName} </td>
+                    <td> ${item.productPrice} </td>
+                    <td> ${item.productQuantity} </td>
+                    <td> ${item.productQuantity * item.productPrice} </td>
+                    <td> <button onclick ="deleteItemFromCart(${item.productId})" class ="btn btn-danger btn-sm">Remove</button>
+                </tr> 
+            `
+            totalPrice += item.productPrice * item.productQuantity;
+        })
+
+        table = table + `
+            <tr><td colspan = "5" class = "text-right font-weight-bold">Total Price: ${totalPrice}</td></tr>
+        </table>`
+        $(".cart-body").html(table)
+
+    }
+}
+
+//delete item
+function deleteItemFromCart(pid)
+{
+    let cart = JSON.parse(localStorage.getItem("cart"));
+    
+    let newcart = cart.filter((item) => item.productId != pid)
+    localStorage.setItem("cart", JSON.stringify(newcart))
+    updateCart();
+}
+
+$(document).ready(function () {
+    updateCart();
+})
+    
