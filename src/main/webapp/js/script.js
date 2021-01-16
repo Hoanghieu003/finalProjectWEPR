@@ -59,7 +59,7 @@ function updateCart()
         console.log("cart is empty");
         $(".cart-items").html("( 0 )");
         $(".cart-body").html("<h3>Cart does not have any item </h3>")
-        $(".checkout-btn").addClass("disable");
+        $(".checkout-btn").attr("disable",true);
     } else {
         //there is some in cart to show
         console.log(cart);
@@ -95,6 +95,7 @@ function updateCart()
         </table>`
         $(".cart-body").html(table)
 
+        $(".checkout-btn").attr("disable",false);
     }
 }
 
@@ -121,4 +122,8 @@ function showToast(content) {
     setTimeOut(() => {
         $("#toast").removeClass("display");
     }, 2000)
+}
+
+function gotoCheckout(){
+    window.location="checkout.jsp"
 }

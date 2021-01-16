@@ -123,6 +123,6 @@
             </div>
         </div>
                             
-                                <%@include file="components/common_modals.jsp" %>
+        <%@include file="components/common_modals.jsp" %>
     </body>
 </html>
