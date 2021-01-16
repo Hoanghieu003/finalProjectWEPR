@@ -1,5 +1,6 @@
 function add_to_cart(pid, pname, price)
 {
+    updateCart();
     let cart = localStorage.getItem("cart");
     if (cart == null)
     {
@@ -8,7 +9,8 @@ function add_to_cart(pid, pname, price)
         let product = {productId: pid, productName: pname, productQuantity: 1, productPrice: price};
         products.push(product);
         localStorage.setItem("cart", JSON.stringify(products));
-        console.log("Product is added for the first time");
+//        console.log("Product is added for the first time");
+        showToast("It is added to cart")
     } else {
         //cart is already present
         let pcart = JSON.parse(cart);
@@ -27,7 +29,9 @@ function add_to_cart(pid, pname, price)
                 }
             })
             localStorage.setItem("cart", JSON.stringify(pcart));
-            console.log("Product quantity is increased");
+//            console.log("Product quantity is increased");
+            showToast(oldProduct.productName + " quantity is increased")
+
 
 
         } else
@@ -36,12 +40,12 @@ function add_to_cart(pid, pname, price)
             let product = {productId: pid, productName: pname, productQuantity: 1, productPrice: price};
             pcart.push(product);
             localStorage.setItem("cart", JSON.stringify(pcart));
-            console.log("Product is added");
-
+//            console.log("Product is added");
+//            showToast("Product is added to cart")
+            updateCart();
+            showToast("Item is added to cart")
         }
     }
-
-    updateCart();
 }
 
 //update cart:
@@ -72,7 +76,7 @@ function updateCart()
                 </tr>
             </thead>
             `;
-        let totalPrice = 0; 
+        let totalPrice = 0;
         cart.map((item) => {
             table += `
                 <tr>
@@ -98,13 +102,23 @@ function updateCart()
 function deleteItemFromCart(pid)
 {
     let cart = JSON.parse(localStorage.getItem("cart"));
-    
+
     let newcart = cart.filter((item) => item.productId != pid)
     localStorage.setItem("cart", JSON.stringify(newcart))
     updateCart();
+    showToast("Item is removed from cart, Quantity = " + oldProduct.productQuantity)
+
 }
 
 $(document).ready(function () {
     updateCart();
 })
-    
+
+
+function showToast(content) {
+    $("#toast").addClass("display");
+    $("#toast").html(content);
+    setTimeOut(() => {
+        $("#toast").removeClass("display");
+    }, 2000)
+}
