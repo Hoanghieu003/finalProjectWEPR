@@ -1,6 +1,6 @@
 <%-- 
-    Document   : normal
-    Created on : Jan 14, 2021, 9:58:35 PM
+    Document   : nomarl
+    Created on : Jan 16, 2021, 5:39:28 PM
     Author     : HoangHieu
 --%>
 
@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>This is normal user panel</h1>
+        <h1>Hello World!</h1>
     </body>
 </html>

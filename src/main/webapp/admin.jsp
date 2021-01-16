@@ -3,6 +3,8 @@
     Created on : Jan 14, 2021, 9:57:53 PM
     Author     : HoangHieu
 --%>
+<%@page import="java.util.Map"%>
+<%@page import="com.learn.finalProjectWEPR.helper.Helper"%>
 <%@page import="java.util.List"%>
 <%@page import="com.learn.finalProjectWEPR.entities.Category"%>
 <%@page import="com.learn.finalProjectWEPR.dao.CategoryDao"%>
@@ -22,6 +24,15 @@
         }
     }
 %>
+
+<%
+    CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
+    List<Category> list = cdao.getCategories();
+//    geting count
+
+    Map<String,Long> m= Helper.getCount(FactoryProvider.getFactory());
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -46,7 +57,7 @@
                         <div class="container">
                             <img style= "max-width: 125px;" class="img-fluid" src="img/users.png" alt="user-icon"/>
                         </div>
-                        <h1>1214</h1>
+                        <h1><%= m.get("userCount")%></h1>
                         <h1 class = "text-uppercase text-muted">Users</h1>
                     </div>
                 </div>
@@ -58,7 +69,7 @@
                         <div class="container">
                             <img style= "max-width: 125px;" class="img-fluid" src="img/categories.png" alt="categories-icon"/>
                         </div>
-                        <h1>4532</h1>
+                        <h1><%= list.size()%></h1>
                         <h1 class = "text-uppercase text-muted">Categories</h1>
                     </div>
                 </div>
@@ -70,7 +81,7 @@
                         <div class="container">
                             <img style= "max-width: 125px;" class="img-fluid" src="img/products.png" alt="products-icon"/>
                         </div>
-                        <h1>2342</h1>
+                        <h1><%= m.get("productCount")%></h1>
                         <h1 class = "text-uppercase text-muted">Products</h1>
                     </div>
                 </div>
@@ -162,8 +173,8 @@
                         <form action="ProductOperationServlet" method="post" enctype="multipart/form-data">
 
                             <input type="hidden" name="operation" value="addproduct"/>
-                            
-                            
+
+
                             <!--product title-->
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Enter title of product" name="pName" required= />                                      
@@ -189,16 +200,11 @@
                             </div>
 
                             <!--product category-->
-                            <%                                
-                                CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
-                                List<Category> list = cdao.getCategories();
-                            %>
 
                             <div class="form-group">
                                 <select name="catId" class="form-control" id="">
 
-                                    <%                                        
-                                            for (Category c : list) {
+                                    <%  for (Category c : list) {
 
                                     %>
 
