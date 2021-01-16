@@ -18,8 +18,6 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>MyCart-Home</title>
         <%@include file="components/commom_css_js.jsp" %>
-        <%@include file="components/commom_css_js.jsp"%>
-
     </head>
     <body>
         <%@include  file="components/navbar.jsp"%>

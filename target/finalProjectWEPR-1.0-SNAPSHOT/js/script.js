@@ -1,4 +1,4 @@
-function add_to_cart(pid, pname, price)
+function add_to_cart(pid, pname, price,pdiscount)
 {
     updateCart();
     let cart = localStorage.getItem("cart");

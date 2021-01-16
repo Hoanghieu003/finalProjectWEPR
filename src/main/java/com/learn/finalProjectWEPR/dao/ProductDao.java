@@ -63,6 +63,25 @@ public class ProductDao {
         query.setParameter("id",cid);
         List<Product> list=query.list();
         return list;
-        
+    }
+    
+    
+    public boolean deleteProduct(Product product){
+        boolean f=false;
+        try {
+            Session session=this.factory.openSession();
+            Transaction tx =session.beginTransaction();
+            
+            session.delete(product);
+            
+            tx.commit();
+            session.close();
+            f=true;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            f=false;
+        }
+        return f;
     }
 }
