@@ -28,12 +28,16 @@
         <div class="container-fluid">
             <div class="row mt-5">
                 <div class="col-md-4 offset-md-4">
-                    <div class="card">
+                    <div class="card mt-3">
 
                         <%@include file="components/message.jsp" %> 
+                        <div class="card-header custom-bg text-white text-center">
+                            <h3>Sign up here</h3>
+                        </div>
                         <div class="card-body px-5">
 
-                            <h3 class="text-center my-3">Sign up here</h3>
+
+
                             <form action="RegisterServlet" method="post">
                                 <div class="form-group">
                                     <label for="name">User Name</label>
@@ -60,7 +64,7 @@
                                     <textarea name="user_address" style="height: 150px;" class="form-control" placeholder="Enter your address"></textarea>
                                 </div>
 
-                                <div class="container text-center">
+                                <div class="container">
                                     <button class="btn btn-outline-success">Register</button>
                                     <button class="btn btn-outline-warning">Reset</button>
                                 </div>

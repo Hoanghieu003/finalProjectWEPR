@@ -32,7 +32,7 @@
 
                     <div class="card mt-3">
 
-                        <div class="card-header custom-bg text-white">
+                        <div class="card-header custom-bg text-white text-center">
                             <h3>Login here</h3>
                         </div>
 
@@ -49,9 +49,9 @@
                                     <input name = "password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                 </div>
                                 <a href="register.jsp">If not register click here</a>
-                                <div class="container text-center">
-                                    <button type="submit" class="btn btn-primary custom-bg border-0">Submit</button>                                
-                                    <button type="reset" class="btn btn-primary custom-bg border-0">Reset</button>
+                                <div class="container ">
+                                    <button  class="btn btn-outline-success">Submit</button>                                
+                                    <button  class="btn btn-outline-warning">Reset</button>
                                 </div>
                             </form>
 

@@ -68,6 +68,10 @@
                         <%
                             }
                         %>
+
+                        <li class="nav-item active">
+                            <a class="nav-link" href="LogoutServlet">Logout </a>
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -123,9 +127,9 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav" style="display: inline;" >
                     <li class="active"><a href="index.jsp">Home</a></li>
-                    <li><a href="#">Shop page</a></li>
+                    <li><a href="index.jsp">Shop page</a></li>
                     <li><a href="#">Single product</a></li>
-                    <li><a href="checkout.jsp">Cart</a></li>
+                    <li><a href="#">Cart</a></li>
                     <li><a href="checkout.jsp">Checkout</a></li>
                     <li><a href="#">Category</a></li>
                     <li><a href="#">Others</a></li>

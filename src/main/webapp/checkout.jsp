@@ -78,7 +78,7 @@
                                     <textarea  value="<%=user.getUserAdress()%>" class="form-control" id="exampleFormControlTextarea1" placeholder="Enter your address" rows="3"></textarea>
                                 </div> 
 
-                                <div class="container text-center">
+                                <div class="container">
                                     <button class="btn btn-outline-success">
                                         Order Now    
                                     </button>

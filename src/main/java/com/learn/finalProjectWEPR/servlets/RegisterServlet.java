@@ -1,4 +1,3 @@
-
 package com.learn.finalProjectWEPR.servlets;
 
 import com.learn.finalProjectWEPR.entities.User;
@@ -24,49 +23,41 @@ public class RegisterServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
-            try{
-                String userName = request.getParameter("user_name");             
+
+            try {
+                String userName = request.getParameter("user_name");
                 String userEmail = request.getParameter("user_email");
                 String userPassword = request.getParameter("user_password");
                 String userPhone = request.getParameter("user_phone");
                 String userAddress = request.getParameter("user_address");
 
+                
                 //Validations
-                if(userName.isEmpty())
-                {
+                if (userName.isEmpty()) {
                     out.println("Name is blank");
+                    //httpSession.setAttribute("message", "Name is blank");
                     return;
                 }
-                
+
                 //crating user object to store data
-                
-                User user=new User(userName,userEmail,userPassword,userPhone,"default.jsp",userAddress,"normal");
-                
-                Session hibernateSession=FactoryProvider.getFactory().openSession();
+                User user = new User(userName, userEmail, userPassword, userPhone, "default.jsp", userAddress, "normal");
+
+                Session hibernateSession = FactoryProvider.getFactory().openSession();
                 Transaction tx = hibernateSession.beginTransaction();
-                
-                
-                int  userId=(int)hibernateSession.save(user);
-                        
-                        
+
+                int userId = (int) hibernateSession.save(user);
+
                 tx.commit();
                 hibernateSession.close();
-
                 HttpSession httpSession = request.getSession();
-                httpSession.setAttribute("message","Registration Successful with ID= "+ userId);
+                httpSession.setAttribute("message", "Registration Successful with ID= " + userId);
                 response.sendRedirect("register.jsp");
                 return;
-                
-            }catch(Exception e){
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            
-            
-            
-            
-            
-            
+
         }
     }
 
