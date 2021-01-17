@@ -57,7 +57,7 @@ function updateCart()
     if (cart == null || cart.length == 0)
     {
         console.log("cart is empty");
-        $(".cart-items").html("( 0 )");
+        $(".cart-items").html(" 0 ");
         $(".cart-body").html("<h3>Cart does not have any item </h3>")
         $(".checkout-btn").attr("disable",true);
     } else {
