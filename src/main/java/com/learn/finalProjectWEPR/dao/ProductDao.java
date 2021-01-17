@@ -65,6 +65,18 @@ public class ProductDao {
         return list;
     }
     
+    public Product getProductById(int pid) {
+        Product product = null;
+        try {
+            Session session = this.factory.openSession();
+            product = session.get(Product.class, pid);
+            session.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return product;
+    }
     
     public boolean deleteProduct(Product product){
         boolean f=false;

@@ -277,6 +277,8 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
+                        <!--form-->
+
                         <div align="center">
                             <table class="table table-bordered" border="1" cellpadding="8">
                                  <tr>
@@ -293,7 +295,8 @@
                                 <%  for (Product p : list) {
 
                                 %>
-                                <tr>
+
+                                <tr>                                    
                                     <td value="<%= p.getpId()%>"><%= p.getpId()%></td>
                                     <td value="<%= p.getpId()%>"><%= p.getpName()%></td>
                                     <td value="<%= p.getpId()%>"><%= p.getpDesc()%></td>
@@ -301,8 +304,13 @@
                                     <td value="<%= p.getpId()%>"><%= p.getpDiscount()%></td>
                                     <td value="<%= p.getpId()%>"><%= p.getpQuantity()%></td>
                                     <td value="<%= p.getpId()%>"><%= p.getCategory()%></td>
-
+                                    <td>
+                                        <a href="ProductOperationServlet?operation=deleteproduct&pId=<%= p.getpId()%>">Delete</a>
+                                    </td> 
+                                    
                                 </tr>
+
+
                                 <%}%>    
 
 

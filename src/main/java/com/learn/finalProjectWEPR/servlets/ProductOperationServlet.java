@@ -122,6 +122,20 @@ public class ProductOperationServlet extends HttpServlet {
                 httpSession.setAttribute("message", "Product is added successfully...");
                 response.sendRedirect("admin.jsp");
                 return;
+            } else if (op.trim().equals("deleteproduct")) {
+                //detele product
+                int pId = Integer.parseInt(request.getParameter("pId"));
+                System.out.println("product Id " + pId);
+                //product save...
+                ProductDao pdao = new ProductDao(FactoryProvider.getFactory());
+//                pdao.deleteProducts(pId);
+                Product product = pdao.getProductById(pId);
+                pdao.deleteProduct(product);
+                out.println("Delete successfully");
+                HttpSession httpSession = request.getSession();
+                httpSession.setAttribute("message", "Product is deleted successfully...");
+                response.sendRedirect("admin.jsp");
+                return;
             }
         }
     }
