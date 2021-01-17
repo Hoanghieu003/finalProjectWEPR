@@ -294,7 +294,8 @@
         </div>
       </div>
     </div>
-    <!-- End footer top area -->  <div class="footer-bottom-area">
+    <!-- End footer top area --> 
+    <div class="footer-bottom-area">
         <div class="container">
           <div class="row">
             <div class="col-md-8">
