@@ -7,7 +7,7 @@
          com.mysql.jdbc.Driver
       </property>
       <property name = "hibernate.connection.url">
-         jdbc:mysql://localhost:3306/mycart
+         jdbc:mysql://34.122.234.225/mycart
       </property>
       
       <property name = "hibernate.connection.username">
@@ -15,7 +15,7 @@
       </property>
       
       <property name = "hibernate.connection.password">
-         123456
+         01886557050Khoa
       </property>
       <property name = "hibernate.dialect">
          org.hibernate.dialect.MySQL57Dialect
