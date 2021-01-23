@@ -43,16 +43,16 @@
             //out.println(cat);
 
             ProductDao dao = new ProductDao(FactoryProvider.getFactory());
-            List<Product> list = null;
+            List<Product> list = dao.getAllProducts();
 
-            if (cat == null || cat.trim().equals("all")) {
-                list = dao.getAllProducts();
-
-            } else {
-                int cid = Integer.parseInt(cat.trim());
-                list = dao.getAllProductsById(cid);
-
-            }
+//            if (cat == null || cat.trim().equals("all")) {
+//                list = dao.getAllProducts();
+//
+//            } else {
+//                int cid = Integer.parseInt(cat.trim());
+//                list = dao.getAllProductsById(cid);
+//
+//            }
             CategoryDao cdao = new CategoryDao(FactoryProvider.getFactory());
             List<Category> clist = cdao.getCategories();
 
