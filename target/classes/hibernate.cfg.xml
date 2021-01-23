@@ -7,7 +7,7 @@
          com.mysql.jdbc.Driver
       </property>
       <property name = "hibernate.connection.url">
-         jdbc:mysql://34.122.234.225/mycart
+         jdbc:mysql://34.122.234.225/mycart?characterEncoding=UTF-8
       </property>
       
       <property name = "hibernate.connection.username">
